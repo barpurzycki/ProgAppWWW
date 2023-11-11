@@ -78,9 +78,16 @@ li a
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    border-style: solid;
+}
+
+li a:active
+{
+    background-color:darkgrey;
 }
   
 li a:hover 
 {
     background-color:darkgrey;
 }
+
