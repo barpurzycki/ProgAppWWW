@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Lis 22, 2023 at 10:01 PM
+-- Generation Time: Lis 29, 2023 at 10:41 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `page_list` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `page_title` varchar(255) NOT NULL,
   `page_content` text NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1
@@ -47,6 +47,46 @@ INSERT INTO `page_list` (`id`, `page_title`, `page_content`, `status`) VALUES
 (6, 'witcher', '        <div id=\"header\">\r\n            <h1><i>The Witcher 3</i></h1>\r\n        </div>\r\n        <div id=\"content\" style=\"font-size:30px;\">\r\n            <img src=\"./Pictures/TW3/W3cover.jpg\" alt=\"The Witcher 3\" width=\"150\" height=\"250\" style=\"float: left; margin:6px;\">\r\n            The Witcher 3 to znana już wszystkim produkcja firmy CD Projekt Red. Można powiedzieć, że była to moja pierwsza gra fabularna. \r\n            Oczywiście się nie zawiodłem. Historia pochłonęła mnie całego, a postać Geralta natychmiastowo stała się moją jedną z ulubionych postaci fikcyjnych.\r\n            <img src=\"./Pictures/TW3/wildhunt.jpg\" alt=\"Wild Hunt\" width=\"300\" height=\"200\" style=\"float: right; margin:6px;\">\r\n            Genialny dubbing, wciągająca fabuła, duży, rozbudowany otwarty świat, i świetny soundtrack \r\n            - to wszystko uczyniło tę grę tak znanym i lubianym na całym świecie. Tytuł ten, mimo swoich lat nadal wygląda pięknie i nadal jest to jedna z najlepszych gier \r\n            RPG na rynku. Ciężko jest się do czegokolwiek przyczepić w tej produkcji, wszystko zostało doszlifowane i dopięte na ostatni guzik. \r\n            <img src=\"./Pictures/TW3/TheWitcher.jpg\" alt=\"Wiedźmin 3 krajobraz\" width=\"300\" height=\"200\" style=\"float: left; margin:6px;\">\r\n            Gra mimo świetnej podstawki ma również jeszcze do zaoferowania dwa genialne dodatki - \"Serce z Kamienia\" i \"Krew i Wino\", \r\n            co daje nam razem ponad 100 godzin wciągającej i powalającej rozgrywki. Jest to tytuł, który każdy, kto lubi grać w gry powinien wypróbować. \r\n            Uważam, że jest to jedna z najlepszych gier na rynku, którą ciężko będzie pobić w najbliższym latach.   \r\n        </div>\r\n', 1),
 (7, 'kontakt', '        <div id=\"header\">\r\n            <h1><i>Kontakt</i></h1>\r\n            <h2><i>Wyślij wiadomość e-mail</i></h2>\r\n        </div>\r\n        <div id=\"content\">\r\n            <h2>Skontaktuj się z nami!</h2>\r\n            <form action=\"mailto:164422@student.uwm.edu.pl\" method=\"post\" enctype=\"text/plain\">\r\n                <dt>Imię i Nazwisko</dt>\r\n                <dd><input type=\"text\" name=\"imienazw\"></dd>\r\n                <dt>E-mail</dt>\r\n                <dd><input type=\"email\" name=\"email\"></dd>\r\n                <dt>Wiadomość</dt>\r\n                <dd><textarea name=\"wiadomosc\"></textarea></dd>\r\n                <input type=\"submit\" value=\"Wyślij\">\r\n                <input type=\"reset\" value=\"Wyczyść\">\r\n            </form>\r\n        </div>', 1),
 (8, 'filmy', '\r\n    <div id=\"header\">\r\n        <h1><i>Filmy</i></h1>\r\n    </div>\r\n    <div id=\"content\">\r\n        <br>\r\n        <br>\r\n        <br>\r\n        <iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/E3Huy2cdih0?si=nFtDqS94YDpcFqz3\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>\r\n        <iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/UgYoKVUPD8Y?si=CiNsy0Fsca_RAVfo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>\r\n        <iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/_zDZYrIUgKE?si=S-a_augxmdWSh94u\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>\r\n    </div>\r\n', 1);
+
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `uzytkownik`
+--
+
+CREATE TABLE `uzytkownik` (
+  `id` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `haslo` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `uzytkownik`
+--
+
+INSERT INTO `uzytkownik` (`id`, `email`, `haslo`) VALUES
+(1, '164422@student.uwm.edu.pl', 'Pass123');
+
+--
+-- Indeksy dla zrzutów tabel
+--
+
+--
+-- Indeksy dla tabeli `uzytkownik`
+--
+ALTER TABLE `uzytkownik`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `uzytkownik`
+--
+ALTER TABLE `uzytkownik`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
